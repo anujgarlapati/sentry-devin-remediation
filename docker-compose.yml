@@ -1,0 +1,38 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DEVIN_MODE=${DEVIN_MODE:-mock}
+      - GITHUB_MODE=${GITHUB_MODE:-mock}
+      - DEVIN_API_KEY=${DEVIN_API_KEY:-}
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - TARGET_REPO=${TARGET_REPO:-your-org/superset-vuln-demo}
+      - DATABASE_URL=sqlite:////data/sentry.db
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+    volumes:
+      - sentry-data:/data
+    restart: unless-stopped
+
+  # One-shot seeder: runs the fixture scan, then exits. Brings the dashboard
+  # to life on first boot without requiring any credentials.
+  seed:
+    build: .
+    environment:
+      - DEVIN_MODE=${DEVIN_MODE:-mock}
+      - GITHUB_MODE=${GITHUB_MODE:-mock}
+      - DEVIN_API_KEY=${DEVIN_API_KEY:-}
+      - GITHUB_TOKEN=${GITHUB_TOKEN:-}
+      - TARGET_REPO=${TARGET_REPO:-your-org/superset-vuln-demo}
+      - DATABASE_URL=sqlite:////data/sentry.db
+    volumes:
+      - sentry-data:/data
+    depends_on:
+      app:
+        condition: service_healthy
+    command: ["python", "-m", "app.workers.scanner"]
+    profiles: ["seed"]
+
+volumes:
+  sentry-data:

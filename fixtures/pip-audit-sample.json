@@ -1,0 +1,79 @@
+{
+  "dependencies": [
+    {
+      "name": "flask",
+      "version": "2.0.1",
+      "vulns": [
+        {
+          "id": "GHSA-m2qf-hxjv-5gpq",
+          "aliases": ["CVE-2023-30861"],
+          "fix_versions": ["2.2.5"],
+          "severity": "high",
+          "description": "Flask vulnerable to possible disclosure of permanent session cookie due to missing Vary: Cookie header. When a response containing data intended for one client is cached and served to other clients, this can leak sensitive session information.",
+          "link": "https://github.com/advisories/GHSA-m2qf-hxjv-5gpq",
+          "affected_range": ">=2.0.0,<2.2.5"
+        }
+      ]
+    },
+    {
+      "name": "werkzeug",
+      "version": "2.0.2",
+      "vulns": [
+        {
+          "id": "GHSA-2g68-c3qc-8985",
+          "aliases": ["CVE-2023-46136"],
+          "fix_versions": ["3.0.1"],
+          "severity": "high",
+          "description": "Werkzeug DoS: high resource usage when parsing multipart/form-data containing a large part with CR/LF character at the beginning. This is a major version bump and changes the signature of several utilities.",
+          "link": "https://github.com/advisories/GHSA-2g68-c3qc-8985",
+          "affected_range": ">=0.9.0,<3.0.1"
+        }
+      ]
+    },
+    {
+      "name": "pyarrow",
+      "version": "10.0.1",
+      "vulns": [
+        {
+          "id": "GHSA-5wvp-7f3h-6wmm",
+          "aliases": ["CVE-2023-47248"],
+          "fix_versions": ["14.0.1"],
+          "severity": "critical",
+          "description": "Deserialization of untrusted data in IPC and Parquet readers in PyArrow allows arbitrary code execution. Major version jump required; breaking API changes in parquet reader signature.",
+          "link": "https://github.com/advisories/GHSA-5wvp-7f3h-6wmm",
+          "affected_range": ">=0.14.0,<14.0.1"
+        }
+      ]
+    },
+    {
+      "name": "cryptography",
+      "version": "41.0.3",
+      "vulns": [
+        {
+          "id": "GHSA-v8gr-m533-ghj9",
+          "aliases": ["CVE-2023-49083"],
+          "fix_versions": ["41.0.6"],
+          "severity": "moderate",
+          "description": "NULL pointer dereference when loading PKCS7 certificates. Straightforward patch bump within the 41.x line.",
+          "link": "https://github.com/advisories/GHSA-v8gr-m533-ghj9",
+          "affected_range": ">=0.8,<41.0.6"
+        }
+      ]
+    },
+    {
+      "name": "sqlparse",
+      "version": "0.4.3",
+      "vulns": [
+        {
+          "id": "GHSA-2m57-hf25-phgg",
+          "aliases": ["CVE-2024-4340"],
+          "fix_versions": [],
+          "severity": "moderate",
+          "description": "sqlparse contains a regular expression denial of service when parsing deeply nested comments. No patched version is available; upstream maintainer has not released a fix. Workarounds include input length limits or switching parsers for the affected code paths.",
+          "link": "https://github.com/advisories/GHSA-2m57-hf25-phgg",
+          "affected_range": ">=0.4.0"
+        }
+      ]
+    }
+  ]
+}

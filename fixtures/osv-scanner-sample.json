@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "source": { "path": "superset-frontend/package.json", "type": "lockfile" },
+      "packages": [
+        {
+          "package": { "name": "axios", "version": "0.27.2", "ecosystem": "npm" },
+          "vulnerabilities": [
+            {
+              "id": "GHSA-wf5p-g6vw-rhxx",
+              "aliases": ["CVE-2024-39338"],
+              "summary": "Axios SSRF vulnerability from absolute URL in path component",
+              "details": "Axios requests to paths beginning with // are rewritten to the configured baseURL host, enabling SSRF attacks. Fixed in 1.7.4. Patch-level reasoning but upgrade crosses major version boundary from 0.x to 1.x.",
+              "severity": [{ "type": "CVSS_V3", "score": "HIGH" }],
+              "affected": [{
+                "package": { "name": "axios", "ecosystem": "npm" },
+                "ranges": [{
+                  "type": "SEMVER",
+                  "events": [{ "introduced": "0.0.0" }, { "fixed": "1.7.4" }]
+                }]
+              }]
+            }
+          ]
+        },
+        {
+          "package": { "name": "lodash.template", "version": "4.5.0", "ecosystem": "npm" },
+          "vulnerabilities": [
+            {
+              "id": "GHSA-35jh-r3h4-6jhm",
+              "aliases": ["CVE-2021-23337"],
+              "summary": "Command injection in lodash.template",
+              "details": "Versions prior to 4.17.21 are vulnerable to command injection via the template function. This package is deprecated upstream; no further releases are planned. Remediation requires switching to the main lodash package or a maintained alternative.",
+              "severity": [{ "type": "CVSS_V3", "score": "HIGH" }],
+              "affected": [{
+                "package": { "name": "lodash.template", "ecosystem": "npm" },
+                "ranges": [{
+                  "type": "SEMVER",
+                  "events": [{ "introduced": "0.0.0" }]
+                }]
+              }]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
