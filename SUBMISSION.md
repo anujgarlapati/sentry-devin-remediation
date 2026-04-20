@@ -5,7 +5,7 @@
 - **Code:** https://github.com/anujgarlapati/sentry-devin-remediation
 - **Superset fork:** https://github.com/anujgarlapati/superset
 - **PR opened by Devin:** https://github.com/anujgarlapati/superset/pull/13
-- **Issues closed by Devin:** https://github.com/anujgarlapati/superset/issues?q=is%3Aissue+is%3Aclosed
+- **Remediation issues (all three cases):** https://github.com/anujgarlapati/superset/issues?q=is%3Aissue
 
 ## What happened
 
