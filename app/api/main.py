@@ -75,8 +75,13 @@ async def lifespan(app: FastAPI):
     # Kick off the background poller. In production, run this as a
     # separate worker container — here we keep it in-process for simplicity.
     poller_task = asyncio.create_task(_background_poller())
-    log.info("sentry up. devin=%s github=%s repo=%s",
-             DEVIN_MODE, GITHUB_MODE, TARGET_REPO)
+    # uvicorn.error so the line appears in `docker compose logs` (default log config hides app.*)
+    logging.getLogger("uvicorn.error").info(
+        "sentry up. devin=%s github=%s repo=%s",
+        DEVIN_MODE,
+        GITHUB_MODE,
+        TARGET_REPO,
+    )
     try:
         yield
     finally:

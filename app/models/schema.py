@@ -55,6 +55,7 @@ class Vulnerability(SQLModel, table=True):
     package: str = Field(index=True)
     ecosystem: str                                # pip, npm, etc.
     manifest_path: str                            # requirements.txt, package.json
+    target_branch: str = "master"
 
     # Content
     severity: Severity = Severity.UNKNOWN

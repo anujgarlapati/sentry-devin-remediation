@@ -115,7 +115,7 @@ class Orchestrator:
         ctx = PromptContext(
             vulnerability=vuln,
             target_repo=self.target_repo,
-            target_branch=self.target_branch,
+            target_branch=vuln.target_branch or self.target_branch,
             issue_url=vuln.github_issue_url,
         )
         prompt = build_remediation_prompt(ctx)

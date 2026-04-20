@@ -59,6 +59,8 @@ async def cmd_remediate(args: argparse.Namespace) -> int:
             candidates.extend(parser(json.loads(path.read_text())))
 
     match = next((v for v in candidates if v.cve_id == args.cve), None)
+    if match and args.branch:
+        match.target_branch = args.branch
     if not match:
         available = ", ".join(sorted({v.cve_id for v in candidates}))
         print(f"no fixture vuln with id {args.cve}. available: {available}", file=sys.stderr)
@@ -136,6 +138,7 @@ def main(argv: list[str] | None = None) -> int:
 
     p_rem = sub.add_parser("remediate", help="dispatch a single vulnerability by CVE id")
     p_rem.add_argument("--cve", required=True, help="e.g. CVE-2023-47248")
+    p_rem.add_argument("--branch", default=None, help="target branch override (default: master)")
 
     sub.add_parser("status", help="print summary metrics")
     sub.add_parser("reset", help="drop and recreate all tables")
