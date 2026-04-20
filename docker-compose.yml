@@ -8,7 +8,7 @@ services:
       - GITHUB_MODE=${GITHUB_MODE:-mock}
       - DEVIN_API_KEY=${DEVIN_API_KEY:-}
       - GITHUB_TOKEN=${GITHUB_TOKEN:-}
-      - TARGET_REPO=${TARGET_REPO:-your-org/superset-vuln-demo}
+      - TARGET_REPO=${TARGET_REPO:-anujgarlapati/superset}
       - DATABASE_URL=sqlite:////data/sentry.db
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
     volumes:
@@ -24,7 +24,7 @@ services:
       - GITHUB_MODE=${GITHUB_MODE:-mock}
       - DEVIN_API_KEY=${DEVIN_API_KEY:-}
       - GITHUB_TOKEN=${GITHUB_TOKEN:-}
-      - TARGET_REPO=${TARGET_REPO:-your-org/superset-vuln-demo}
+      - TARGET_REPO=${TARGET_REPO:-anujgarlapati/superset}
       - DATABASE_URL=sqlite:////data/sentry.db
     volumes:
       - sentry-data:/data

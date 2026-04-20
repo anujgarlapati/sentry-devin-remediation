@@ -9,16 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-0: #0a0b0d;
-    --bg-1: #111316;
-    --bg-2: #171a1f;
-    --bg-3: #1f242b;
-    --line: #242a32;
-    --line-soft: #1a1f26;
-    --ink-0: #f4f6f8;
-    --ink-1: #b8c0cc;
-    --ink-2: #6e7783;
-    --ink-3: #4a525e;
+    /* Base scale — screen-share / interview */
+    --font-base: 18px;
+    --font-sm: 14px;
+    --font-xs: 13px;
+    --font-xxs: 12px;
+    /* Backgrounds: slightly lifted vs pure black so panels read as “cards” on Zoom */
+    --bg-0: #12151c;
+    --bg-1: #1a1e28;
+    --bg-2: #222831;
+    --bg-3: #2c3340;
+    --line: #343c4a;
+    --line-soft: #232a34;
+    --ink-0: #f7f8fa;
+    --ink-1: #c5cdd8;
+    --ink-2: #9aa6b4;
+    --ink-3: #5c6674;
     --accent: #7dd3a0;
     --accent-dim: rgba(125, 211, 160, 0.12);
     --warn: #f0b560;
@@ -33,8 +39,8 @@
     background: var(--bg-0);
     color: var(--ink-0);
     font-family: 'Sora', system-ui, sans-serif;
-    font-size: 14px;
-    line-height: 1.5;
+    font-size: var(--font-base);
+    line-height: 1.55;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
@@ -53,14 +59,14 @@
   .brand .name {
     font-family: 'JetBrains Mono', monospace;
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1.25rem;
     letter-spacing: -0.01em;
   }
   .brand .name::before {
     content: "◆"; color: var(--accent); margin-right: 8px; font-size: 12px;
   }
   .brand .sub {
-    font-size: 12px; color: var(--ink-2);
+    font-size: var(--font-sm); color: var(--ink-2);
     font-family: 'JetBrains Mono', monospace;
   }
   .brand .sub code {
@@ -73,7 +79,7 @@
   .topbar-right { display: flex; align-items: center; gap: 16px; }
   .mode-pill {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: var(--font-xxs); letter-spacing: 0.1em; text-transform: uppercase;
     padding: 4px 10px; border-radius: 999px;
     border: 1px solid var(--line);
     color: var(--ink-1);
@@ -96,21 +102,21 @@
 
   /* ------------------------ content grid --------------------------- */
   main {
-    padding: 24px;
+    padding: 28px 28px 32px;
     display: grid;
-    gap: 20px;
+    gap: 24px;
     max-width: 1600px;
     margin: 0 auto;
     width: 100%;
   }
 
   .section-title {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.18em;
+    font-size: var(--font-xs); font-weight: 600; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--ink-2);
     margin-bottom: 12px;
     display: flex; justify-content: space-between; align-items: baseline;
   }
-  .section-title .hint { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-3); font-size: 11px; }
+  .section-title .hint { font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--ink-3); font-size: var(--font-xs); }
 
   /* ------------------------ KPI row --------------------------- */
   .kpi-row {
@@ -134,24 +140,24 @@
   .kpi.warn::before  { background: var(--warn); }
   .kpi.crit::before  { background: var(--crit); }
   .kpi .label {
-    font-size: 10px; color: var(--ink-2);
+    font-size: var(--font-xxs); color: var(--ink-2);
     text-transform: uppercase; letter-spacing: 0.15em;
     font-weight: 600;
     margin-bottom: 10px;
   }
   .kpi .value {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 28px; font-weight: 600;
+    font-size: 2.25rem; font-weight: 600;
     color: var(--ink-0);
     line-height: 1;
     letter-spacing: -0.02em;
   }
   .kpi .value .unit {
-    font-size: 13px; color: var(--ink-2); margin-left: 4px; font-weight: 400;
+    font-size: var(--font-sm); color: var(--ink-2); margin-left: 4px; font-weight: 400;
   }
   .kpi .sub {
     margin-top: 10px;
-    font-size: 11px; color: var(--ink-2);
+    font-size: var(--font-xs); color: var(--ink-2);
     font-family: 'JetBrains Mono', monospace;
     display: flex; justify-content: space-between;
   }
@@ -180,26 +186,26 @@
     background: var(--bg-1);
   }
   .panel-header .title {
-    font-size: 13px; font-weight: 600; color: var(--ink-0);
+    font-size: 1.05rem; font-weight: 600; color: var(--ink-0);
   }
-  .panel-header .meta { font-size: 11px; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; }
+  .panel-header .meta { font-size: var(--font-xs); color: var(--ink-2); font-family: 'JetBrains Mono', monospace; }
   .panel-body { padding: 0; }
 
   /* ------------------------ vuln table --------------------------- */
   table.vulns {
     width: 100%; border-collapse: collapse;
-    font-size: 12.5px;
+    font-size: var(--font-sm);
   }
   table.vulns th {
-    text-align: left; padding: 10px 16px;
-    font-size: 10px; font-weight: 600;
+    text-align: left; padding: 12px 18px;
+    font-size: var(--font-xxs); font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.12em;
     color: var(--ink-2);
     border-bottom: 1px solid var(--line);
     background: var(--bg-1);
   }
   table.vulns td {
-    padding: 12px 16px;
+    padding: 14px 18px;
     border-bottom: 1px solid var(--line-soft);
     vertical-align: middle;
   }
@@ -208,7 +214,7 @@
   table.vulns tr:hover { background: var(--bg-2); cursor: pointer; }
   table.vulns td.pkg .cve {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--ink-2); display: block;
+    font-size: var(--font-xs); color: var(--ink-2); display: block;
   }
   table.vulns td.pkg .name { font-weight: 500; color: var(--ink-0); }
 
@@ -223,13 +229,13 @@
   .sev-unknown .sev-dot { background: var(--ink-3); }
   .sev-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-size: var(--font-xxs); letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--ink-1);
   }
 
   .status-chip {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; font-weight: 500;
+    font-size: var(--font-xxs); font-weight: 500;
     letter-spacing: 0.08em; text-transform: uppercase;
     padding: 3px 8px; border-radius: 3px;
     display: inline-block;
@@ -250,14 +256,14 @@
 
   .route-chip {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 10px; text-transform: lowercase;
+    font-size: var(--font-xs); text-transform: lowercase;
     color: var(--ink-2);
   }
   .route-chip strong { color: var(--ink-1); font-weight: 500; }
 
   td.links a {
     color: var(--ink-2);
-    font-size: 11px;
+    font-size: var(--font-xs);
     text-decoration: none;
     margin-right: 10px;
     font-family: 'JetBrains Mono', monospace;
@@ -265,7 +271,26 @@
   td.links a:hover { color: var(--accent); }
   td.timing {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--ink-2);
+    font-size: var(--font-xs); color: var(--ink-2);
+  }
+
+  td.session-cell {
+    vertical-align: top;
+  }
+  .session-block {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: 28rem;
+  }
+  .session-block a.session-open {
+    font-size: var(--font-sm); font-weight: 600; color: var(--accent);
+    text-decoration: none; font-family: 'JetBrains Mono', monospace;
+  }
+  .session-block a.session-open:hover { text-decoration: underline; }
+  .session-block .session-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-xs);
+    color: var(--ink-1);
+    line-height: 1.35;
+    word-break: break-all;
   }
 
   /* ------------------------ right panel --------------------------- */
@@ -283,22 +308,22 @@
   .activity-item.done .activity-dot { background: var(--info); }
   .activity-item.fail .activity-dot { background: var(--crit); }
   .activity-text {
-    font-size: 12.5px; color: var(--ink-1); line-height: 1.5;
+    font-size: var(--font-sm); color: var(--ink-1); line-height: 1.55;
   }
   .activity-text strong { color: var(--ink-0); font-weight: 500; }
-  .activity-text .mono { color: var(--ink-2); font-size: 11px; }
+  .activity-text .mono { color: var(--ink-2); font-size: var(--font-xs); }
   .activity-time {
-    font-size: 10.5px; color: var(--ink-3);
+    font-size: var(--font-xs); color: var(--ink-3);
     font-family: 'JetBrains Mono', monospace;
     white-space: nowrap;
   }
 
   /* ------------------------ footer --------------------------- */
   footer {
-    padding: 24px;
+    padding: 28px;
     text-align: center;
     color: var(--ink-3);
-    font-size: 11px;
+    font-size: var(--font-xs);
     font-family: 'JetBrains Mono', monospace;
     border-top: 1px solid var(--line);
     margin-top: 20px;
@@ -308,10 +333,10 @@
 
   /* ------------------------ empty states --------------------------- */
   .empty {
-    padding: 40px 20px;
+    padding: 48px 24px;
     text-align: center;
     color: var(--ink-2);
-    font-size: 12px;
+    font-size: var(--font-sm);
     font-family: 'JetBrains Mono', monospace;
   }
 
@@ -336,7 +361,7 @@
       <div class="sub">tracking <code>{{ target_repo }}</code></div>
     </div>
     <div class="topbar-right">
-      <span class="mono" style="font-size: 11px; color: var(--ink-2);">
+      <span class="mono" style="font-size: var(--font-xs); color: var(--ink-2);">
         <span class="live-dot"></span>updated just now
       </span>
       <span class="mode-pill {{ 'live' if devin_mode == 'live' else 'mock' }}">
@@ -485,20 +510,25 @@
         ? `skip`
         : `—`;
       const sessionLink = v.devin_session_id
-        ? `<a href="${v.devin_session_url}" target="_blank" class="mono">${v.devin_session_id.slice(0, 16)}…</a>`
+        ? `<div class="session-block" onclick="event.stopPropagation();">
+             ${v.devin_session_url
+               ? `<a href="${v.devin_session_url}" target="_blank" rel="noopener" class="session-open">open session →</a>`
+               : ''}
+             <span class="session-id" title="Full Devin session id">${v.devin_session_id}</span>
+           </div>`
         : `<span style="color: var(--ink-3);">—</span>`;
       const prLink = v.devin_pr_url ? `<a href="${v.devin_pr_url}" target="_blank">pr</a>` : '';
       const issueLink = v.github_issue_url ? `<a href="${v.github_issue_url}" target="_blank">issue</a>` : '';
       return `
         <tr onclick="location.href='/vulnerabilities/${v.id}'">
           <td class="pkg">
-            <div class="name">${v.package} <span class="mono" style="color: var(--ink-3); font-size: 11px;">${v.current_version || ''}</span></div>
+            <div class="name">${v.package} <span class="mono" style="color: var(--ink-3); font-size: var(--font-xs);">${v.current_version || ''}</span></div>
             <span class="cve">${v.cve_id}</span>
           </td>
           <td class="${sevClass}"><span class="sev-dot"></span><span class="sev-label">${v.severity}</span></td>
           <td><span class="route-chip">${routeLabel}</span></td>
           <td><span class="status-chip ${v.status}">${v.status.replace('_', ' ')}</span></td>
-          <td class="links">${sessionLink} ${prLink} ${issueLink}</td>
+          <td class="links session-cell">${sessionLink} ${prLink} ${issueLink}</td>
           <td class="timing">${fmt.ago(v.dispatched_at || v.first_seen_at)}</td>
         </tr>
       `;
@@ -519,7 +549,11 @@
       });
       if (v.dispatched_at) events.push({
         at: v.dispatched_at, class: 'new',
-        text: `dispatched <strong>${v.package}</strong> to devin`,
+        text: `dispatched <strong>${v.package}</strong> to devin${
+          v.devin_session_id
+            ? ` <span class="mono" style="color: var(--ink-2);">${v.devin_session_id}</span>`
+            : ''
+        }`,
       });
       if (v.status === 'failed') events.push({
         at: v.dispatched_at, class: 'fail',

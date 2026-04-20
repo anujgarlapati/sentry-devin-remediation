@@ -15,8 +15,8 @@
     "created_at": "2026-04-12T14:22:01Z"
   },
   "repository": {
-    "full_name": "your-org/superset-vuln-demo",
-    "html_url": "https://github.com/your-org/superset-vuln-demo"
+    "full_name": "anujgarlapati/superset",
+    "html_url": "https://github.com/anujgarlapati/superset"
   },
   "sender": { "login": "dependabot[bot]", "type": "Bot" }
 }

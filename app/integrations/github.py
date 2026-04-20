@@ -173,7 +173,7 @@ class GitHubClient:
 
 ---
 
-<sub>Filed automatically by [Sentry](https://github.com/your-org/sentry) — \
+<sub>Filed automatically by [Sentry](https://github.com/anujgarlapati/sentry-devin-remediation) — \
 an event-driven vulnerability remediation system. If this was routed to \
 Devin, a session will update this issue with a PR link shortly.</sub>
 """

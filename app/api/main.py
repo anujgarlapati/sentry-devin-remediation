@@ -34,7 +34,7 @@ log = logging.getLogger(__name__)
 DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./sentry.db")
 DEVIN_MODE = os.getenv("DEVIN_MODE", "mock")
 GITHUB_MODE = os.getenv("GITHUB_MODE", "mock")
-TARGET_REPO = os.getenv("TARGET_REPO", "your-org/superset-vuln-demo")
+TARGET_REPO = os.getenv("TARGET_REPO", "anujgarlapati/superset")
 
 engine = create_engine(
     DATABASE_URL,
