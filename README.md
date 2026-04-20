@@ -24,7 +24,7 @@ Session URLs, PR links, and evidence are in `SUBMISSION.md`.
 
 ---
 
-Built as a take-home for Cognition. Target repo: [`apache/superset`](https://github.com/apache/superset).
+Built as a take-home for Cognition. Target repo (fork): [`anujgarlapati/superset`](https://github.com/anujgarlapati/superset) (upstream: [`apache/superset`](https://github.com/apache/superset)).
 
 ---
 
@@ -115,8 +115,8 @@ A human engineer handles these cases today. Devin handles them autonomously beca
 ### Quickstart (dry-run, no Devin API key needed)
 
 ```bash
-git clone https://github.com/<you>/sentry
-cd sentry
+git clone https://github.com/anujgarlapati/sentry-devin-remediation.git
+cd sentry-devin-remediation
 docker compose up --build
 # open http://localhost:8000
 ```
@@ -141,10 +141,12 @@ Then trigger either path:
 docker compose exec app python -m app.workers.scanner
 ```
 
-### One-off: remediate a specific issue
+### One-off: remediate a fixture CVE (live mode)
 
 ```bash
-docker compose exec app python -m app.cli remediate --issue-url https://github.com/<you>/superset-fork/issues/7
+docker compose exec app python -m app.cli remediate --cve CVE-2023-46136
+# optional: target a branch other than your default (e.g. demo branch)
+docker compose exec app python -m app.cli remediate --cve CVE-2023-46136 --branch demo-vulnerable-werkzeug
 ```
 
 ## Observability — what an engineering leader sees
@@ -184,6 +186,6 @@ docs/              # architecture decisions, prompt engineering notes
 
 ## Submission contents
 
-- **This repo**: the Sentry automation layer
-- **Superset fork**: `https://github.com/<you>/superset-vuln-demo` with 3 seeded vulnerability issues, each linked to the Devin PR that closed it
-- **Loom (5 min)**: `<link>` — problem framing, live walkthrough of a session, dashboard tour, V2 roadmap
+- **This repo**: the Sentry automation layer — [`anujgarlapati/sentry-devin-remediation`](https://github.com/anujgarlapati/sentry-devin-remediation)
+- **Superset fork**: [`anujgarlapati/superset`](https://github.com/anujgarlapati/superset) — evidence (sessions, PRs, issues) is summarized in [`SUBMISSION.md`](SUBMISSION.md)
+- **Loom (5 min)**: add your recording link here when you publish — problem framing, live walkthrough of a session, dashboard tour, V2 roadmap
