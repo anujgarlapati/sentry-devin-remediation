@@ -2,6 +2,12 @@
 
 > Dependabot tells you there's a problem. Sentry makes Devin fix it.
 
+## Take-home submission (start here)
+
+**[SUBMISSION.md](SUBMISSION.md)** — Cognition write-up: links to this repo and the Superset fork, the three Devin cases (A/B/C), PR and issue URLs, and how reviewers can run or verify the system.
+
+---
+
 ## The thesis
 
 Most designs for a system like this route by severity — critical CVEs get escalated, low-severity ones get ignored. I think that's the wrong axis.
@@ -20,7 +26,7 @@ Everything else — the webhook listener, the parallel session orchestration, th
 
 The PRs Sentry opened on my Apache Superset fork were written by Devin, not by me. I didn't touch the remediation code. I built the system that orchestrates Devin, dispatched three real sessions, and let Devin do the engineering work. That's the submission: not "candidate built a Devin integration," but "Devin remediated vulnerabilities in a real open-source codebase via a system I built to orchestrate it."
 
-Session URLs, PR links, and evidence are in `SUBMISSION.md`.
+Session URLs, PR links, and evidence: **[SUBMISSION.md](SUBMISSION.md)**.
 
 ---
 
