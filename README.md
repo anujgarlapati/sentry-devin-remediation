@@ -4,7 +4,7 @@
 
 ## Take-home submission (start here)
 
-**[SUBMISSION.md](SUBMISSION.md)** — Cognition write-up: links to this repo and the Superset fork, the three Devin cases (A/B/C), PR and issue URLs, and how reviewers can run or verify the system.
+**[SUBMISSION.md](SUBMISSION.md)** — Cognition write-up: links to this repo and the Superset fork, the three Devin cases (A/B/C), PR and issue URLs, and how reviewers can run or verify the system. **Loom:** [5 min walkthrough](https://www.loom.com/share/b54ed28c3e4041438471160971b635dc).
 
 ---
 
@@ -194,4 +194,4 @@ docs/              # architecture decisions, prompt engineering notes
 
 - **This repo**: the Sentry automation layer — [`anujgarlapati/sentry-devin-remediation`](https://github.com/anujgarlapati/sentry-devin-remediation)
 - **Superset fork**: [`anujgarlapati/superset`](https://github.com/anujgarlapati/superset) — evidence (sessions, PRs, issues) is summarized in [`SUBMISSION.md`](SUBMISSION.md)
-- **Loom (5 min)**: add your recording link here when you publish — problem framing, live walkthrough of a session, dashboard tour, V2 roadmap
+- **Loom (5 min):** [walkthrough](https://www.loom.com/share/b54ed28c3e4041438471160971b635dc) — problem framing, live session, dashboard tour, V2 roadmap

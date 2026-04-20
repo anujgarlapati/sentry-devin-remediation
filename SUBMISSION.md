@@ -1,6 +1,7 @@
 # Cognition Take-Home Submission — Anuj Garlapati
 
 ## Links
+- **Loom (5 min):** https://www.loom.com/share/b54ed28c3e4041438471160971b635dc
 - **Code:** https://github.com/anujgarlapati/sentry-devin-remediation
 - **Superset fork:** https://github.com/anujgarlapati/superset
 - **PR opened by Devin:** https://github.com/anujgarlapati/superset/pull/13
