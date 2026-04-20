@@ -13,7 +13,7 @@ I built Sentry, dispatched three real Devin sessions against my Apache Superset 
 | Case | CVE | Target | Outcome | What it demonstrates |
 |---|---|---|---|---|
 | **A** | CVE-2023-46136 (werkzeug) | `demo-vulnerable-werkzeug` branch (werkzeug pinned to vulnerable 2.0.2) | **PR opened** at https://github.com/anujgarlapati/superset/pull/13. Devin bumped werkzeug to patched version, updated affected call sites, tests pass. | Devin executes autonomous remediation when there's real work to do. |
-| **B** | CVE-2023-47248 (pyarrow) | `master` | Completed without PR. pyarrow already at 16.1.0 on master (> 14.0.1 fix). [Issue](https://github.com/anujgarlapati/superset/issues/11) with Devin verification output. | Devin doesn't open noise PRs when the fix is already present. |
+| **B** | CVE-2023-47248 (pyarrow) | `master` | Completed without PR. pyarrow already at 16.1.0 on master (> 14.0.1 fix). [Issue closed](https://github.com/anujgarlapati/superset/issues/11) with a Devin verification comment (timeline walkthrough in the demo Loom). | Devin doesn't open noise PRs when the fix is already present. |
 | **C** | CVE-2024-4340 (sqlparse) | `master` | Not applicable. Devin discovered sqlparse isn't a dependency of this repo — Superset explicitly bans sqlparse imports via a pylint rule enforcing the v6 migration to sqlglot + sqloxide. Advisory data was stale (0.5.0 is patched). [Issue closed](https://github.com/anujgarlapati/superset/issues/12) with full reasoning. | Devin catches bad inputs by reading the code, not just reacting to alerts. |
 
 ## The point
